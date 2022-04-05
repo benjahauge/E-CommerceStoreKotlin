@@ -1,5 +1,6 @@
 package com.example.mandatoryassignment
 
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -51,7 +52,10 @@ class SecondFragment : Fragment() {
         binding.editTextDescription.setText(item.description)
         binding.editTextPrice.setText(item.price.toString())
         binding.editTextSeller.setText(item.seller)
-        binding.editTextDate.setText(item.date.toString())
+
+        val format = SimpleDateFormat.getDateTimeInstance()
+        val actualDate = format.format(item.date * 1000L)
+        binding.editTextDate.setText(actualDate)
 
         binding.buttonBack.setOnClickListener {
             findNavController().popBackStack()

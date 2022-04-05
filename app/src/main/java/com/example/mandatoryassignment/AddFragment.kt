@@ -1,5 +1,6 @@
 package com.example.mandatoryassignment
 
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -15,12 +16,14 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
+
 class AddFragment : Fragment() {
 
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
     private val itemViewModel: ItemViewModel by activityViewModels()
     private lateinit var auth: FirebaseAuth
+    private lateinit var item: Item
 
 
 
@@ -52,12 +55,15 @@ class AddFragment : Fragment() {
         if (currentUser != null) {
 
 
+
+
         binding.buttonAdd.setOnClickListener {
             val title = binding.title.text.trim().toString()
             val description = binding.description.text.trim().toString()
             val price = binding.price.text.trim().toString().toInt()
             val seller = currentUser?.email.toString()
             val date = System.currentTimeMillis()/1000
+
             val item = Item(
                 id = id,
                 title = title,
