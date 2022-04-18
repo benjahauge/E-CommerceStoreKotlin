@@ -45,9 +45,7 @@ class ResaleRepository {
             }
 
             override fun onFailure(call: Call<List<Item>>, t: Throwable) {
-                //booksLiveData.postValue(null)
                 errorMessageLiveData.postValue(t.message)
-                Log.d("APPLE", t.message!!)
             }
         })
     }

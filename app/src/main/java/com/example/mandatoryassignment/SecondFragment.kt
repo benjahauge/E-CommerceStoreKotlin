@@ -70,10 +70,7 @@ class SecondFragment : Fragment() {
             binding.buttonDelete.setVisibility(View.GONE)
         }
 
-        binding.buttonDelete.setOnClickListener {
-            itemViewModel.delete(item.id)
-            findNavController().popBackStack()
-        }
+
     }
 
     override fun onDestroyView() {

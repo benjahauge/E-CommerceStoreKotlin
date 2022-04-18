@@ -12,10 +12,4 @@
         android:orderInCategory="10"
         android:title="Sign out"
         app:showAsAction="ifRoom" />
-
-    <item
-        android:id="@+id/action_login"
-        android:orderInCategory="5"
-        android:title="Log-in"
-        app:showAsAction="ifRoom" />
 </menu>

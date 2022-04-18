@@ -19,15 +19,12 @@ class MyAdapter<T>(
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): MyViewHolder {
-        // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.list_item, viewGroup, false)
         return MyViewHolder(view, onItemClicked)
     }
 
     override fun onBindViewHolder(viewHolder: MyViewHolder, position: Int) {
-        // Get element from your dataset at this position and replace the
-        // contents of the view with that element
         viewHolder.textView.text = items[position].toString()
     }
 
@@ -41,7 +38,6 @@ class MyAdapter<T>(
 
         override fun onClick(view: View) {
             val position = bindingAdapterPosition
-            // gradle     implementation "androidx.recyclerview:recyclerview:1.2.1"
             onItemClicked(position)
         }
     }

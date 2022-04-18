@@ -10,11 +10,8 @@ data class Item(val id: Int, val title: String, val description: String, val pri
 
 
     override fun toString(): String {
-//        val stamp = Timestamp(System.currentTimeMillis())
-//        val actualDate = Date(stamp.time)
         val format = SimpleDateFormat.getDateTimeInstance()
         val actualDate = format.format(date * 1000L)
-
 
         return "$id, $title, $description, $price, $seller, $actualDate"
     }

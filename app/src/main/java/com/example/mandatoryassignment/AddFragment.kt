@@ -53,10 +53,6 @@ class AddFragment : Fragment() {
         }
 
         if (currentUser != null) {
-
-
-
-
         binding.buttonAdd.setOnClickListener {
             val title = binding.title.text.trim().toString()
             val description = binding.description.text.trim().toString()

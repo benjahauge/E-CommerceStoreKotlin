@@ -31,9 +31,7 @@ class LoginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            binding.emailInputField.setText(currentUser.email) // half automatic login
-            // current user exists: No need to login again
-            // findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+            binding.emailInputField.setText(currentUser.email)
         }
         binding.messageView.text = "Current user ${currentUser?.email}"
         binding.signIn.setOnClickListener {
@@ -69,7 +67,6 @@ class LoginFragment : Fragment() {
             auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     binding.messageView.text = "User created. Now please login"
-                    // Alternative: goto next fragment (no need to login after register)
                 } else {
                     binding.messageView.text = task.exception?.message
                 }

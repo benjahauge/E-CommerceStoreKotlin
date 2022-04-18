@@ -58,9 +58,15 @@ class FirstFragment : Fragment() {
             showDialog()
         }
 
-        binding.buttonLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_loginFragment)
+
+        if (currentUser == null ) {
+            binding.buttonLogin.setOnClickListener {
+                findNavController().navigate(R.id.action_FirstFragment_to_loginFragment)
+            }
+        } else {
+            binding.buttonLogin.setVisibility(View.GONE)
         }
+
 
 
 
@@ -137,38 +143,9 @@ class FirstFragment : Fragment() {
         builder?.show()
     }
 
-//    private fun setupTaskRecyclerView(itemlist: MutableList<LiveData<List<Item>>>){
-//        itemViewModel.itemsLiveData.observe(viewLifecycleOwner) { items ->
-//            binding.progressbar.visibility = View.GONE
-//            binding.recyclerView.visibility = if (items == null) View.GONE else View.VISIBLE
-//            if (items != null) {
-//                val adapter = MyAdapter(items) { position ->
-//                    val action =
-//                        FirstFragmentDirections.actionFirstFragmentToSecondFragment(position)
-//                    findNavController().navigate(action)
-//                }
-//                binding.recyclerView.layoutManager = LinearLayoutManager(activity)
-//                binding.recyclerView.setHasFixedSize(true)
-//                itemlist.sortedBy { it.value.}
-//                binding.recyclerView.adapter = adapter
-//            }
-//        }
-//
-//    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.menu_main, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.action_login -> {
-                //Skal direct til LoginFragment somehow!!
-                true
-            }
-        }
-        return true
     }
 
 

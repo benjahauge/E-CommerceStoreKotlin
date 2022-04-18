@@ -23,13 +23,11 @@ class ItemViewModel : ViewModel() {
 
     fun sortByPriceDescinding() {
         itemsLiveDataMutable.value = itemsLiveDataMutable.value?.sortedByDescending { it.price }
-
     }
 
     fun filterByPrice(maxVal: Int, minVal: Int) {
         itemsLiveDataMutable.value = itemsLiveDataMutable.value?.filter { it.price in (minVal + 1) until maxVal }
     }
-
 
 
     fun reload() {
@@ -39,7 +37,6 @@ class ItemViewModel : ViewModel() {
     operator fun get(index: Int): Item? {
         return itemsLiveData.value?.get(index)
     }
-
 
 
     fun add(item: Item) {
