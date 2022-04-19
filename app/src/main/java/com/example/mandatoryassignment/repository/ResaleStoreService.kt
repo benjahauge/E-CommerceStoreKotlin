@@ -8,12 +8,12 @@ interface ResaleStoreService {
     @GET("ResaleItems")
     fun getAllItems(): Call<List<Item>>
 
-//    @GET("items/{itemId}")
-//    fun getItemById(@Path("itemId") itemId: Int): Call<Item>
+    @GET("items/{itemId}")
+    fun getItemById(@Path("itemId") itemId: Int): Call<Item>
 
     @POST("ResaleItems")
     fun saveItem(@Body item: Item): Call<Item>
 
-    @DELETE("items/{id}")
+    @DELETE("ResaleItems/{id}")
     fun deleteItem(@Path("id") id: Int): Call<Item>
 }

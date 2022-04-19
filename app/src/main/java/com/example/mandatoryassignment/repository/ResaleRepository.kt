@@ -72,10 +72,11 @@ class ResaleRepository {
         resaleStoreService.deleteItem(id).enqueue(object : Callback<Item> {
             override fun onResponse(call: Call<Item>, response: Response<Item>) {
                 if (response.isSuccessful) {
-                    updateMessageLiveData.postValue("Deleted: " + response.body())
+                    Log.d("APPLE", "Updated: " + response.body())
                 } else {
                     val message = response.code().toString() + " " + response.message()
                     errorMessageLiveData.postValue(message)
+                    Log.d("APPLE", message)
                 }
             }
 
